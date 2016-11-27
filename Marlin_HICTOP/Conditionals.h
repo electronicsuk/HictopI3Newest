@@ -477,8 +477,8 @@
     #define HEATER_0_USES_THERMISTOR
   #endif
 
-  #if TEMP_SENSOR_1 <= -2
-    #error MAX6675 / MAX31855 Thermocouples not supported for TEMP_SENSOR_1
+  #if TEMP_SENSOR_1 <= -4
+    #error MAX6675 / MAX31855 / 31850 Thermocouples not supported for TEMP_SENSOR_1
   #elif TEMP_SENSOR_1 == -1
     #define HEATER_1_USES_AD595
   #elif TEMP_SENSOR_1 == 0

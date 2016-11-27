@@ -911,6 +911,10 @@ static void updateTemperaturesFromRawValues() {
   #if ENABLED(HEATER_0_USES_MAX6675)
     current_temperature_raw[0] = read_max6675();
   #endif
+  
+  #if ENABLED(HEATER_0_USES_MAX3180)
+    current_temperature_raw[0] = 0;// initialise it to zero since it's handled by the dallas library
+  #endif
  
   for (uint8_t e = 0; e < EXTRUDERS; e++) {
     current_temperature[e] = analog2temp(current_temperature_raw[e], e);
