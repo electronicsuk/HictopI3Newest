@@ -916,11 +916,7 @@ void loop() {
     cmd_queue_index_r = (cmd_queue_index_r + 1) % BUFSIZE;
   }
   checkHitEndstops();
-  idle();
-   MYSERIAL.println();
-   sensors.requestTemperatures();
-MYSERIAL.println("Current Temp");
-  MYSERIAL.print(GetTemperature());
+  idle(); 
 }
 
 void gcode_line_error(const char* err, bool doFlush = true) {
