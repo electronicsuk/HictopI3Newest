@@ -917,6 +917,7 @@ void loop() {
   }
   checkHitEndstops();
   idle();
+  degHotend(0);
 }
 
 void gcode_line_error(const char* err, bool doFlush = true) {
