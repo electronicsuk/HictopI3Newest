@@ -913,7 +913,7 @@ static void updateTemperaturesFromRawValues() {
   #endif
   
   #if ENABLED(HEATER_0_USES_MAX3180)
-    current_temperature_raw[0] = 0;// initialise it to zero since it's handled by the dallas library
+    current_temperature_raw[0] = GetTemperature();// initialise it to zero since it's handled by the dallas library
   #endif
  
   for (uint8_t e = 0; e < EXTRUDERS; e++) {
