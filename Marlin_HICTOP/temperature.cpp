@@ -845,7 +845,7 @@ static float analog2temp(int raw, uint8_t e) {
   #endif
 
     #if ENABLED(HEATER_0_USES_MAX3180)
-    if (e == 0) return GetTemperature(); 
+    if (e == 0) return raw* 0.0625; 
   #endif
 
   if (heater_ttbl_map[e] != NULL) {
@@ -913,7 +913,7 @@ static void updateTemperaturesFromRawValues() {
   #endif
   
   #if ENABLED(HEATER_0_USES_MAX3180)
-    current_temperature_raw[0] = GetTemperature();// initialise it to zero since it's handled by the dallas library
+    current_temperature_raw[0] = GetTemperature() /  0.0625;
   #endif
  
   for (uint8_t e = 0; e < EXTRUDERS; e++) {
