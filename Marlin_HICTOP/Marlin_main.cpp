@@ -814,7 +814,7 @@ void setup() {
   #ifdef HEATER_0_USES_MAX3180
   SetupMax31850();
 #endif
-  
+
   lcd_init();
 
   tp_init();    // Initialize temperature loop
