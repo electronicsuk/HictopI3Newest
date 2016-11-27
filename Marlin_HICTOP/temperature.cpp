@@ -712,7 +712,7 @@ void manage_heater() {
 
   updateTemperaturesFromRawValues();
 
-  #if ENABLED(HEATER_0_USES_MAX6675)
+  #if ENABLED(HEATER_0_USES_MAX6675) || ENABLED(HEATER_0_USES_MAX3180)
     float ct = current_temperature[0];
     if (ct > min(HEATER_0_MAXTEMP, 1023)) max_temp_error(0);
     if (ct < max(HEATER_0_MINTEMP, 0.01)) min_temp_error(0);
@@ -1367,7 +1367,7 @@ static unsigned long raw_temp_value[4] = { 0 };
 static unsigned long raw_temp_bed_value = 0;
 
 static void set_current_temp_raw() {
-  #if HAS_TEMP_0 && DISABLED(HEATER_0_USES_MAX6675)
+  #if HAS_TEMP_0 && DISABLED(HEATER_0_USES_MAX6675) && DISABLED(HEATER_0_USES_MAX3180)
     current_temperature_raw[0] = raw_temp_value[0];
   #endif
   #if HAS_TEMP_1
@@ -1749,7 +1749,7 @@ ISR(TIMER0_COMPB_vect) {
     for (int i = 0; i < 4; i++) raw_temp_value[i] = 0;
     raw_temp_bed_value = 0;
 
-    #if HAS_TEMP_0 && DISABLED(HEATER_0_USES_MAX6675)
+    #if HAS_TEMP_0 && DISABLED(HEATER_0_USES_MAX6675) && DISABLED(HEATER_0_USES_MAX3180)
       #if HEATER_0_RAW_LO_TEMP > HEATER_0_RAW_HI_TEMP
         #define GE0 <=
       #else
