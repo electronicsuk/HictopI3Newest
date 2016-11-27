@@ -914,6 +914,8 @@ static void updateTemperaturesFromRawValues() {
   
   #if ENABLED(HEATER_0_USES_MAX3180)
     current_temperature_raw[0] = GetTemperature() /  0.0625;
+    MYSERIAL.print("hmm so it does call the update");
+    MYSERIAL.print("whats the value though"+ current_temperature_raw[0]);
   #endif
  
   for (uint8_t e = 0; e < EXTRUDERS; e++) {
