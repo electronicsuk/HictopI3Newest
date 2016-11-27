@@ -65,6 +65,7 @@ MYSERIAL.println("Current Temp");
 
 float GetTemperature()
 {
+  sensors.requestTemperatures();
   return sensors.getTempC(hotend0Thermometer);  
 }
 
