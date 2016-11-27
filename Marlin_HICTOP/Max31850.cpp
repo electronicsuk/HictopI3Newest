@@ -56,6 +56,9 @@ void printAddress(DeviceAddress deviceAddress)
   MYSERIAL.print("Device 0 Resolution: ");
   MYSERIAL.print(sensors.getResolution(hotend0Thermometer), DEC); 
   MYSERIAL.println();
+MYSERIAL.println("Current Temp");
+  MYSERIAL.print(GetTemperature());
+  
 }
 
 
