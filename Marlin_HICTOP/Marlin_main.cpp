@@ -811,6 +811,10 @@ void setup() {
   // loads data from EEPROM if available else uses defaults (and resets step acceleration rate)
   Config_RetrieveSettings();
 
+  #ifdef HEATER_0_USES_MAX3180
+  SetupMax31850();
+#endif
+  
   lcd_init();
 
   tp_init();    // Initialize temperature loop
@@ -858,9 +862,7 @@ void setup() {
     digitalWrite(STAT_LED_BLUE, LOW); // turn it off
   #endif
 
-#ifdef HEATER_0_USES_MAX3180
-  SetupMax31850();
-#endif
+
 }
 
 /**
