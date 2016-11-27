@@ -917,6 +917,10 @@ void loop() {
   }
   checkHitEndstops();
   idle();
+   MYSERIAL.println();
+   sensors.requestTemperatures();
+MYSERIAL.println("Current Temp");
+  MYSERIAL.print(GetTemperature());
 }
 
 void gcode_line_error(const char* err, bool doFlush = true) {
